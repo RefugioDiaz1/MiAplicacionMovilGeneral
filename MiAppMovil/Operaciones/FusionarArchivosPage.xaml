@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MiAppMovil.Operaciones.FusionarArchivosPage"
+    Title="Fusionar Archivos"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Button Text="← Volver"
+   FontSize="18"
+   BackgroundColor="Transparent"
+   TextColor="#512BD4"
+   HorizontalOptions="Start"
+   Margin="0,20,0,0"
+   Clicked="OnBackButtonClicked" />
+        <Label 
+            Text="Adjunta imágenes y PDFs para fusionarlos en un solo PDF"
+            FontAttributes="Bold"
+            FontSize="18"
+            HorizontalOptions="Center" />
+
+        <Button
+            Text="Agregar Archivos"
+            Clicked="OnAgregarArchivosClicked"
+            BackgroundColor="#512BD4"
+            TextColor="White"
+            CornerRadius="10"
+            HeightRequest="50" />
+        <CollectionView
+    x:Name="ArchivosCollection"
+    HeightRequest="150"
+    ItemsSource="{Binding Archivos}"
+    SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" CornerRadius="8" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#2C2C2E}">
+                        <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+
+                            <!-- Nombre del archivo con truncamiento -->
+                            <Label 
+                        Text="{Binding NombreArchivo}" 
+                        LineBreakMode="TailTruncation"
+                        FontSize="14"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        MaxLines="1" />
+
+                            <!-- Botón eliminar siempre visible -->
+                            <Button 
+                        Grid.Column="1"
+                        Text="Eliminar" 
+                        TextColor="Red"
+                        FontSize="13"
+                        BackgroundColor="Transparent"
+                        Padding="10,5"
+                        CommandParameter="{Binding}" 
+                        Clicked="OnEliminarArchivoClicked" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Button
+            x:Name="BtnFusionar"
+            Text="Fusionar y Guardar PDF"
+            Clicked="OnFusionarGuardarClicked"
+            BackgroundColor="#34C759"
+            TextColor="White"
+            CornerRadius="10"
+            HeightRequest="50" />
+
+        
+        <WebView 
+    x:Name="PdfWebView"
+    HeightRequest="400"
+    IsVisible="False"
+    Margin="0,10,0,0"/>
+
+        <Button
+    x:Name="BtnGuardar"
+    Text="Guardar PDF en Descargas"
+    Clicked="OnGuardarPdfClicked"
+    BackgroundColor="#007AFF"
+    TextColor="White"
+    CornerRadius="10"
+    HeightRequest="50"
+    IsVisible="False" />
+
+        <Button
+    x:Name="BtnLimpiar"
+    Text="Limpiar y Empezar de Nuevo"
+    Clicked="OnLimpiarClicked"
+    BackgroundColor="#FF3B30"
+    TextColor="White"
+    CornerRadius="10"
+    HeightRequest="50"
+    IsVisible="False" />
+        
+        <ActivityIndicator 
+    x:Name="LoadingIndicator" 
+    IsVisible="False" 
+    IsRunning="False" 
+    HorizontalOptions="Center" />
+
+
+    </VerticalStackLayout>
+</ContentPage>

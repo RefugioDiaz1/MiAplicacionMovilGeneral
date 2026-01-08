@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    x:Class="MiAppMovil.Pages.OperacionesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Operaciones"
+    BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Menú de Operaciones" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   TextColor="#512BD4" 
+                   HorizontalOptions="Center" />
+
+            <Grid 
+    ColumnDefinitions="*,*"
+    RowDefinitions="Auto,Auto,Auto,Auto"
+    ColumnSpacing="15" 
+    RowSpacing="15">
+
+                <!-- Elemento 1 -->
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="🛠️" FontSize="48" />
+                        <Label Text="Cotizador Refacciones" FontSize="18" TextColor="#512BD4" />
+                        <Button Text="Ir" Clicked="CotizadorRefacciones_Clicked" BackgroundColor="#512BD4" TextColor="White" CornerRadius="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Elemento 2 -->
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="🚗" FontSize="48" />
+                        <Label Text="Unidades Nuevas" FontSize="18" TextColor="#512BD4" />
+                        <Button Text="Ir" Clicked="Unidades_Clicked" BackgroundColor="#512BD4" TextColor="White" CornerRadius="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Elemento 3 -->
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="📦" FontSize="48" />
+                        <Label Text="Entregas" FontSize="18" TextColor="#512BD4" />
+                        <Button Text="Ir" Clicked="EntregaRefacciones_Clicked" BackgroundColor="#512BD4" TextColor="White" CornerRadius="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Elemento 4 -->
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="🔧" FontSize="48" />
+                        <Label Text="Servicio Técnico" FontSize="18" TextColor="#512BD4" />
+                        <Button Text="Ir" Clicked="Unidades_Clicked" BackgroundColor="#512BD4" TextColor="White" CornerRadius="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Elemento 5 -->
+                <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="🔀" FontSize="48" />
+                        <Label Text="Fusionar Archivos" FontSize="18" TextColor="#512BD4" />
+                        <Button Text="Ir" Clicked="FusionarArchivos_Clicked" BackgroundColor="#512BD4" TextColor="White" CornerRadius="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                
+                <!-- Elemento 7: Escanear Documentos -->
+                <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="📷" FontSize="48" />
+                        <Label Text="Escanear Documentos" FontSize="18" TextColor="#512BD4" HorizontalTextAlignment="Center"/>
+                        <Button 
+            Text="Ir" 
+            Clicked="EscanearDocumentos_Clicked" 
+            BackgroundColor="#512BD4" 
+            TextColor="White" 
+            CornerRadius="12" />
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <!-- Elemento 7 -->
+                <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#E6E6FA" CornerRadius="15" HasShadow="True" Padding="20">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Label Text="📋" FontSize="48" />
+                        <Label Text="Reportes" FontSize="18" TextColor="#512BD4" />
+                        <Button Text="Ir" Clicked="Unidades_Clicked" BackgroundColor="#512BD4" TextColor="White" CornerRadius="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

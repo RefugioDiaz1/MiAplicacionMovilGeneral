@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MiAppMovil"
+    x:Class="MiAppMovil.Pages.MainLayoutPage"
+    BackgroundColor="White">
+
+    <Grid RowDefinitions="*, Auto" Padding="0">
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <ContentView x:Name="ContentArea"
+                     BackgroundColor="White"
+                     Grid.Row="0" />
+
+        <!-- NAVBAR INFERIOR PERSONALIZADO -->
+        <Grid Grid.Row="1"
+              BackgroundColor="#f8f9fa"
+              Padding="10"
+              ColumnDefinitions="*,*,*"
+              HeightRequest="70">
+
+            <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="btnInicio" Text="🏠" Clicked="GoInicio" FontSize="30" BackgroundColor="Transparent" />
+                <Label x:Name="lblInicio" Text="Inicio" FontSize="12" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="btnOperaciones" Text="📋" Clicked="GoOperaciones" FontSize="30" BackgroundColor="Transparent" />
+                <Label x:Name="lblOperaciones" Text="Operaciones" FontSize="12" HorizontalOptions="Center"/>
+            </StackLayout>
+
+
+            <StackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="btnConfig" Text="⚙️" Clicked="GoConfig" FontSize="30" BackgroundColor="Transparent" />
+                <Label x:Name="lblConfig" Text="Config" FontSize="12" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+
+        <!-- 🔔 ALERTA PERSONALIZADA -->
+        <local:CustomAlert x:Name="Alerta" Grid.RowSpan="2" IsVisible="False" />
+    </Grid>
+</ContentPage>

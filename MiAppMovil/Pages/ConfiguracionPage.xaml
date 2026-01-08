@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MiAppMovil"
+    x:Class="MiAppMovil.Pages.ConfiguracionPage"
+    BackgroundColor="#F9FAFB"
+    Title="Configuración">
+
+    <Grid>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Label Text="Ajustes de la aplicación" FontSize="24" HorizontalOptions="Center" />
+
+          
+
+                <Frame BackgroundColor="White"
+CornerRadius="15"
+Padding="10"
+HasShadow="True">
+                    <Button Text="Mostrar ID del dispositivo"
+     BackgroundColor="#E6E6FA"
+     TextColor="#512BD4"
+     FontAttributes="Bold"
+     CornerRadius="12"
+     HeightRequest="45"
+     Clicked="OnMostrarIdClicked" />
+                </Frame>
+
+
+                <!-- Botón Obtener Ubicación -->
+                <Frame BackgroundColor="White"
+           CornerRadius="15"
+           Padding="10"
+           HasShadow="True">
+                    <Button Text="📍 Obtener Ubicación Actual"
+                BackgroundColor="#E6E6FA"
+                TextColor="#512BD4"
+                FontAttributes="Bold"
+                CornerRadius="12"
+                HeightRequest="45"
+                Clicked="OnObtenerUbicacionClicked" />
+                </Frame>
+
+
+                <!-- Menú con botón de contacto -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="15"
+                       Padding="10"
+                       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+                        <Button Text="📞 Contáctanos"
+                                BackgroundColor="#E6E6FA"
+                                TextColor="#512BD4"
+                                FontAttributes="Bold"
+                                CornerRadius="12"
+                                HeightRequest="45"
+                                Clicked="MostrarFormularioContacto" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- FORMULARIO DE CONTACTO -->
+                <Frame x:Name="FormularioContacto"
+       IsVisible="False"
+       BackgroundColor="White"
+       CornerRadius="15"
+       Padding="20"
+       HasShadow="True">
+                    <VerticalStackLayout Spacing="15">
+
+                        <Label Text="Contáctanos"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="#512BD4"
+               HorizontalOptions="Center" />
+
+                        <!-- Nombre -->
+                        <Grid HeightRequest="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="👤" FontSize="22" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Frame Grid.Column="1" BackgroundColor="#F0F0F0" CornerRadius="12" Padding="10,0" HasShadow="False" VerticalOptions="Center" HeightRequest="40">
+                                <Entry x:Name="NombreEntry" Placeholder="Nombre completo" FontSize="16" BackgroundColor="Transparent" />
+                            </Frame>
+                        </Grid>
+
+                        <!-- Correo -->
+                        <Grid HeightRequest="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="📧" FontSize="22" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Frame Grid.Column="1" BackgroundColor="#F0F0F0" CornerRadius="12" Padding="10,0" HasShadow="False" VerticalOptions="Center" HeightRequest="40">
+                                <Entry x:Name="CorreoEntry" Placeholder="Correo electrónico" Keyboard="Email" FontSize="16" BackgroundColor="Transparent" />
+                            </Frame>
+                        </Grid>
+
+                        <!-- Teléfono -->
+                        <Grid HeightRequest="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="📞" FontSize="22" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Frame Grid.Column="1" BackgroundColor="#F0F0F0" CornerRadius="12" Padding="10,0" HasShadow="False" VerticalOptions="Center" HeightRequest="40">
+                                <Entry x:Name="TelefonoEntry" Placeholder="Teléfono" Keyboard="Telephone" FontSize="16" BackgroundColor="Transparent" />
+                            </Frame>
+                        </Grid>
+
+                        <!-- Área -->
+                        <Grid HeightRequest="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="🏢" FontSize="22" VerticalOptions="Center" HorizontalOptions="Center" />
+                            <Frame Grid.Column="1" BackgroundColor="#F0F0F0" CornerRadius="12" Padding="10,0" HasShadow="False" VerticalOptions="Center" HeightRequest="40">
+                                <Picker x:Name="AreaPicker" Title="Selecciona área" FontSize="16">
+                                    <Picker.Items>
+                                        <x:String>Atención al Cliente</x:String>
+                                        <x:String>Soporte Técnico</x:String>
+                                        <x:String>Ventas</x:String>
+                                        <x:String>Marketing</x:String>
+                                        <x:String>Recursos Humanos</x:String>
+                                        <x:String>Administración</x:String>
+                                        <x:String>Finanzas</x:String>
+                                        <x:String>Legal</x:String>
+                                        <x:String>Operaciones</x:String>
+                                        <x:String>Desarrollo</x:String>
+                                        <x:String>Logística</x:String>
+                                        <x:String>Calidad</x:String>
+                                        <x:String>TI / Sistemas</x:String>
+                                        <x:String>Compras</x:String>
+                                        <x:String>Comunicación</x:String>
+                                        <x:String>Relaciones Públicas</x:String>
+                                        <x:String>Seguridad</x:String>
+                                        <x:String>Otros</x:String>
+                                    </Picker.Items>
+                                </Picker>
+
+                            </Frame>
+                        </Grid>
+
+                        <!-- Comentario / Queja -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="📝" FontSize="22" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,5,0,0" />
+                            <Frame Grid.Column="1" BackgroundColor="#F0F0F0" CornerRadius="12" Padding="10" HasShadow="False">
+                                <Editor x:Name="QuejaEditor" Placeholder="Describe tu queja o comentario" AutoSize="TextChanges" HeightRequest="100" FontSize="16" BackgroundColor="Transparent" />
+                            </Frame>
+                        </Grid>
+
+                        <!-- Botones -->
+                        <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                            <Button x:Name="EnviarContactoBtn"
+                    Text="Enviar"
+                    Clicked="EnviarContacto_Clicked"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    CornerRadius="12"
+                    WidthRequest="140"
+                    HeightRequest="50" />
+                            <Button Text="Cancelar"
+                    Clicked="CancelarContacto_Clicked"
+                    BackgroundColor="#CCC"
+                    TextColor="#333"
+                    CornerRadius="12"
+                    WidthRequest="140"
+                    HeightRequest="50" />
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <Frame BackgroundColor="White"
+       CornerRadius="15"
+       Padding="10"
+       HasShadow="True"
+       Margin="0">
+
+                    <Button Text="📘 Misión, Visión y Valores"
+            FontSize="18"
+            FontAttributes="Bold"
+            TextColor="#512BD4"
+            BackgroundColor="#E6E6FA"
+            CornerRadius="12"
+            HeightRequest="45"
+            HorizontalOptions="FillAndExpand"
+            Clicked="ToggleMisionVisionValores"
+            Padding="10,0" />
+                </Frame>
+
+                <!-- Contenido expandible -->
+                <StackLayout x:Name="MisionVisionValoresPanel"
+             IsVisible="False"
+             Padding="15"
+             Spacing="10"
+             BackgroundColor="White">
+                    <Label Text="🎯 Misión: Brindar soluciones móviles eficientes para el usuario moderno."
+           FontSize="14"
+           TextColor="#444" />
+                    <Label Text="👁 Visión: Ser líderes en transformación digital empresarial."
+           FontSize="14"
+           TextColor="#444" />
+                    <Label Text="💎 Valores: Innovación, compromiso, accesibilidad y confianza."
+           FontSize="14"
+           TextColor="#444" />
+                </StackLayout>
+
+                <Frame BackgroundColor="White"
+       CornerRadius="15"
+       Padding="10"
+       HasShadow="True"
+       Margin="0">
+
+                    <Button Text="ℹ️ Sobre esta aplicación"
+            FontSize="18"
+            FontAttributes="Bold"
+            TextColor="#512BD4"
+            BackgroundColor="#E6E6FA"
+            CornerRadius="12"
+            HeightRequest="45"
+            HorizontalOptions="FillAndExpand"
+            Clicked="ToggleSobreApp"
+            Padding="10,0" />
+                </Frame>
+
+                <StackLayout x:Name="SobreAppPanel"
+             IsVisible="False"
+             Padding="15"
+             Spacing="10"
+             BackgroundColor="White">
+                    <Label Text="Esta app fue diseñada para brindar una experiencia eficiente de gestión móvil, ofreciendo herramientas clave para el usuario y conectividad con sistemas internos."
+           FontSize="14"
+           TextColor="#444" />
+                    <Label Text="Versión: 1.0.0"
+           FontSize="14"
+           TextColor="#777" />
+                    <Label Text="Desarrollada con .NET MAUI"
+           FontSize="14"
+           TextColor="#777" />
+                </StackLayout>
+
+
+                <Frame BackgroundColor="White"
+       CornerRadius="15"
+       Padding="15"
+       HasShadow="True">
+
+                    <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Label Text="🔔 Recibir notificaciones"
+               FontSize="16"
+               VerticalOptions="Center"
+               HorizontalOptions="StartAndExpand" />
+                        <Switch x:Name="NotificacionesSwitch" IsToggled="True" />
+                    </HorizontalStackLayout>
+                </Frame>
+
+
+
+                <Frame BackgroundColor="White"
+       CornerRadius="15"
+       Padding="15"
+       HasShadow="True">
+
+                    <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Label Text="🌗 Activar tema oscuro"
+               FontSize="16"
+               VerticalOptions="Center"
+               HorizontalOptions="StartAndExpand" />
+                        <Switch x:Name="TemaOscuroSwitch" Toggled="TemaOscuroSwitch_Toggled" />
+                    </HorizontalStackLayout>
+                </Frame>
+
+
+
+                <!-- Aviso de Privacidad -->
+                <Border BackgroundColor="White"
+        Stroke="#E2E8F0"
+        StrokeThickness="1"
+        Padding="15"
+        StrokeShape="RoundRectangle 12">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="5,5" Radius="10" Opacity="0.3" />
+                    </Border.Shadow>
+                    
+                    
+                    <VerticalStackLayout>
+                        <Frame BackgroundColor="#E6E6FA"
+       CornerRadius="12"
+       HasShadow="False"
+       Padding="12"
+       >
+
+                            <Label Text="🔒 Aviso de Privacidad"
+           FontSize="18"
+           FontAttributes="Bold"
+           TextColor="#512BD4">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ToggleAvisoPrivacidad" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Frame>
+
+
+                        <StackLayout x:Name="AvisoPrivacidadPanel" IsVisible="False" Spacing="10">
+                            <Label Text="Esta aplicación recopila ciertos datos personales, como el identificador único del dispositivo y la información proporcionada voluntariamente por el usuario. Estos datos se utilizan exclusivamente con fines operativos y de mejora de la experiencia."
+                   FontSize="14" TextColor="#444" />
+
+                            <Label Text="No compartimos tu información con terceros sin tu consentimiento expreso. Mantenemos altos estándares de confidencialidad y seguridad conforme a la normativa aplicable."
+                   FontSize="14" TextColor="#444" />
+
+                            <Label Text="Al utilizar esta app, aceptas los términos de este aviso de privacidad."
+                   FontSize="14" TextColor="#444" />
+                        </StackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+
+
+
+                <Frame BackgroundColor="White"
+       CornerRadius="15"
+       Padding="0"
+       HasShadow="True">
+                    <Button Text="🚪 Cerrar sesión"
+            BackgroundColor="#FFE6E6"
+            TextColor="#D42B2B"
+            FontAttributes="Bold"
+            CornerRadius="12"
+            HeightRequest="45"
+            Clicked="CerrarSesion_Clicked" />
+                </Frame>
+
+
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ✅ ALERTA PERSONALIZADA COMO COMPONENTE -->
+        <local:CustomAlert x:Name="Alerta" IsVisible="False" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+    x:Class="MiAppMovil.Operaciones.EntregaRefaccionesPage"
+    Title="Entrega de Refacciones"
+    BackgroundColor="{AppThemeBinding Light=#F2F2F7, Dark=#1C1C1E}">
+
+    
+    
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Button Text="← Volver"
+           FontSize="18"
+           BackgroundColor="Transparent"
+           TextColor="#512BD4"
+           HorizontalOptions="Start"
+           Margin="0,20,0,0"
+           Clicked="OnBackButtonClicked" />
+        <!-- Aquí todo lo que quieres que sea scrollable -->
+        <ScrollView x:Name="MainScrollView" HeightRequest="350">
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Número de crédito -->
+                <Frame
+        HasShadow="True"
+        CornerRadius="10"
+        Padding="12"
+        BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}">
+                    <Entry
+            x:Name="CreditoEntry"
+            Placeholder="Número de crédito"
+            Keyboard="Numeric"
+            BackgroundColor="Transparent"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            ClearButtonVisibility="WhileEditing"
+            FontSize="16"
+            PlaceholderColor="{AppThemeBinding Light=#888, Dark=#aaa}" />
+                </Frame>
+
+                <!-- Nombre del cliente -->
+                <Frame
+        HasShadow="True"
+        CornerRadius="10"
+        Padding="12"
+        BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}">
+                    <Entry
+            x:Name="ClienteEntry"
+            Placeholder="Nombre del cliente"
+            BackgroundColor="Transparent"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            FontSize="16"
+            PlaceholderColor="{AppThemeBinding Light=#888, Dark=#aaa}" />
+                </Frame>
+
+                <!-- Selector vendedor -->
+                <Frame
+        HasShadow="True"
+        CornerRadius="10"
+        Padding="8"
+        BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}">
+                    <Picker
+            x:Name="VendedorPicker"
+            Title="Selecciona vendedor"
+            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+            FontSize="16" />
+                </Frame>
+
+
+                <Button Text="Agregar fotos"
+                        Clicked="OnAgregarFotos"
+                        HeightRequest="48"
+                        BackgroundColor="#007AFF"
+                        TextColor="White"
+                        CornerRadius="12" />
+
+                <CollectionView x:Name="FotosCollection"
+                ItemsSource="{Binding Imagenes}"
+                ItemsLayout="HorizontalList"
+                HeightRequest="100">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="0" CornerRadius="8" Margin="4,0" HasShadow="False"
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}">
+                                <Grid>
+                                    <!-- Imagen con Tap para ver grande -->
+                                    <Image Source="{Binding}"
+       Aspect="AspectFill"
+       HeightRequest="80"
+       WidthRequest="80">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnImagenTocada"
+                              CommandParameter="{Binding}" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <!-- Botón de eliminar -->
+                                    <Button Text="×"
+                            FontSize="14"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            CornerRadius="12"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"
+                            Margin="4"
+                            CommandParameter="{Binding}"
+                            Clicked="OnEliminarFoto"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <Button Text="Finalizar entrega"
+                        Clicked="OnFinalizarEntrega"
+                        HeightRequest="52"
+                        BackgroundColor="#34C759"
+                        TextColor="White"
+                        CornerRadius="14"
+                        FontAttributes="Bold" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Firma afuera para que no se mezcle con el scroll -->
+        <Label Text="Firma del cliente" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+
+        <skia:SKCanvasView
+            x:Name="SignaturePad"
+            EnableTouchEvents="True"
+            Touch="OnCanvasViewTouch"
+            PaintSurface="OnPaintSurface"
+            HeightRequest="150"
+            BackgroundColor="White" />
+
+        <Button Text="Limpiar firma"
+                Clicked="OnClearSignature"
+                HeightRequest="40"
+                BackgroundColor="#FF3B30"
+                TextColor="White"
+                CornerRadius="10" />
+
+    </VerticalStackLayout>
+</ContentPage>
+
+

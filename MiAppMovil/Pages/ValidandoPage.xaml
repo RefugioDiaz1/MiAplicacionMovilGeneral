@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiAppMovil.Pages.ValidandoPage"
+             BackgroundColor="White">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+        <ActivityIndicator IsRunning="True" Color="#007bff" WidthRequest="40" HeightRequest="40" />
+        <Label Text="Validando dispositivo..."
+               FontSize="18"
+               TextColor="Gray"
+               HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

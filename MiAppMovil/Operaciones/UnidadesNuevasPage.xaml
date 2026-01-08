@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiAppMovil.Operaciones.UnidadesNuevasPage"
+             Title="Cotizador de Unidades Nuevas">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Botón Flecha Atrás -->
+        <Button Text="← Volver"
+                FontSize="18"
+                BackgroundColor="Transparent"
+                TextColor="#512BD4"
+                HorizontalOptions="Start"
+                Clicked="OnBackButtonClicked" />
+
+        <Label Text="Aquí va el contenido de Cotizador de Unidades Nuevas"
+               FontSize="20"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+    </VerticalStackLayout>
+</ContentPage>

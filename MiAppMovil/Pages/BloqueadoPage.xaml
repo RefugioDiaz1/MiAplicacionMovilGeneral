@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MiAppMovil" 
+             x:Class="MiAppMovil.Pages.BloqueadoPage"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Contenido bloqueado -->
+        <VerticalStackLayout Padding="30" Spacing="20"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Grid.Row="0">
+            <Label x:Name="MensajeLabel"
+       FontSize="18"
+       HorizontalOptions="Center"
+       TextColor="Black"
+       Text="Validando..." />
+
+        </VerticalStackLayout>
+
+        <!-- Botón reintentar abajo -->
+        <Button Text="🔄 Reintentar validación"
+                Clicked="Revalidar_Clicked"
+                BackgroundColor="#007bff"
+                TextColor="White"
+                CornerRadius="12"
+                Padding="12,8"
+                Margin="20"
+                HorizontalOptions="Center"
+                Grid.Row="1" />
+
+        <!-- Alerta personalizada -->
+        <local:CustomAlert x:Name="Alerta" IsVisible="False" Grid.RowSpan="2" />
+
+    </Grid>
+</ContentPage>

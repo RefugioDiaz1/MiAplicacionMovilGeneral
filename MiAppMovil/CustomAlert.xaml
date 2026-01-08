@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- CustomAlert.xaml -->
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiAppMovil.CustomAlert"
+             IsVisible="False"
+             BackgroundColor="#80000000">
+    <!-- semitransparente -->
+
+    <Grid Padding="30"
+          VerticalOptions="Center"
+          HorizontalOptions="Center">
+        <Frame CornerRadius="15"
+               BackgroundColor="White"
+               Padding="20"
+               WidthRequest="300"
+               HasShadow="True">
+
+            <VerticalStackLayout Spacing="15">
+                <Label x:Name="MensajeLabel"
+                       TextColor="Black"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center" />
+
+                <Button Text="OK"
+                        BackgroundColor="#512BD4"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Clicked="BtnOk_Clicked" />
+            </VerticalStackLayout>
+
+        </Frame>
+    </Grid>
+</ContentView>

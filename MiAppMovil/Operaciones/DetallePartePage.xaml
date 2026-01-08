@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiAppMovil.Operaciones.DetallePartePage"
+             Title="Detalle Refacción"
+             BackgroundColor="#f7f9fc">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Cargando -->
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsRunning="False"
+                               IsVisible="False"
+                               Color="#007bff"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+
+            <!-- Botón regreso -->
+            <Button Text="← Volver"
+                    Clicked="Volver_Clicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#007bff"
+                    FontSize="18"
+                    HorizontalOptions="Start" />
+
+            <VerticalStackLayout Padding="10,20" Spacing="12" BackgroundColor="#ffffff">
+
+                <!-- Número de Parte -->
+                <Label Text="Número de Parte"
+           FontSize="13"
+           TextColor="#666" />
+
+                <Label x:Name="ParteLabel"
+           FontSize="20"
+           FontAttributes="Bold"
+           TextColor="#1E1E1E"
+           Margin="0,0,0,10" />
+
+                <!-- Descripción -->
+                <Label Text="Descripción"
+           FontSize="13"
+           TextColor="#666" />
+
+                <Label x:Name="DescripcionLabel"
+           FontSize="17"
+           TextColor="#333"
+           Margin="0,0,0,10" />
+
+                <!-- Existencia Total -->
+                <HorizontalStackLayout Spacing="6">
+                    <Label Text="Existencia total:"
+               FontSize="14"
+               FontAttributes="Bold"
+               TextColor="#007bff" />
+                    <Label x:Name="ExistenciaTotalLabel"
+               FontSize="16"
+               TextColor="#007bff"
+               FontAttributes="Bold" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+
+            <!-- Título detalles por sucursal -->
+            <Label Text="Detalles por sucursal"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#444" />
+
+            <!-- Detalles -->
+            <CollectionView x:Name="DetalleView" ItemsLayout="VerticalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" CornerRadius="15" Padding="15" Margin="1,10" HasShadow="True">
+                            <VerticalStackLayout Spacing="12">
+
+                                <!-- Nombre sucursal -->
+                                <Label Text="{Binding NombreSucursal}" FontSize="16" FontAttributes="Bold" TextColor="#1e1e1e" />
+
+                                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto">
+                                    <!-- Existencia -->
+                                    <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center">
+                                        <Label Text="📦" FontSize="20" HorizontalOptions="Center" />
+                                        <Label Text="Existencia" FontSize="12" TextColor="#666" />
+                                        <Label Text="{Binding Existencia}" FontSize="14" TextColor="#333" FontAttributes="Bold"/>
+                                    </VerticalStackLayout>
+
+                                    <!-- Reservas -->
+                                    <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center">
+                                        <Label Text="🧾" FontSize="20" HorizontalOptions="Center" />
+                                        <Label Text="Reservas" FontSize="12" TextColor="#666" />
+                                        <Label Text="{Binding Reservas}" FontSize="14" TextColor="#333" FontAttributes="Bold"/>
+                                    </VerticalStackLayout>
+
+                                    <!-- Disponibles -->
+                                    <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center">
+                                        <Label Text="✅" FontSize="20" HorizontalOptions="Center" />
+                                        <Label Text="Disponibles" FontSize="12" TextColor="#666" />
+                                        <Label Text="{Binding Disponibles}" FontSize="14" TextColor="#333" FontAttributes="Bold"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+
+                                <!-- Línea divisora -->
+                                <BoxView HeightRequest="1" BackgroundColor="#eee" Margin="0,10"/>
+
+                                <!-- Costos -->
+                                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                        <Label Text="🪙 Costo Medio" FontSize="12" TextColor="#888" />
+                                        <Label Text="{Binding CostoMedio}" FontSize="14" TextColor="#4b0082" />
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                        <Label Text="💰 Precio Venta" FontSize="12" TextColor="#888" />
+                                        <Label Text="{Binding PrecioVenta}" FontSize="14" TextColor="#c62828" />
+                                    </VerticalStackLayout>
+                                </Grid>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

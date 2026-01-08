@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MiAppMovil.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:MiAppMovil.Pages"
+    xmlns:operaciones="clr-namespace:MiAppMovil.Operaciones"
+    FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <!-- ✅ Rutas personalizadas -->
+    <ShellContent Route="mainlayout">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <pages:MainLayoutPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+    <ShellContent Route="bloqueado">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <pages:BloqueadoPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+    <ShellContent Route="cotizador">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <operaciones:CotizadorPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+    <ShellContent Route="unidadesnuevas">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <operaciones:UnidadesNuevasPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+    <ShellContent Route="entregarefacciones">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <operaciones:EntregaRefaccionesPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+    
+    <ShellContent Route="fusionararchivos">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <operaciones:FusionarArchivosPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+    <ShellContent Route="scaneardocumentos">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <operaciones:ScanearDocumentosPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+    <ShellContent Route="validando">
+        <ShellContent.ContentTemplate>
+            <DataTemplate>
+                <pages:ValidandoPage />
+            </DataTemplate>
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
+
+    <!-- ✅ Menú inferior principal (TabBar) -->
+    <TabBar>
+        <ShellContent 
+            Title="Inicio" 
+            Icon="home.png" 
+            ContentTemplate="{DataTemplate pages:InicioPage}" />
+
+        <ShellContent 
+            Title="Operaciones" 
+            Icon="user.png" 
+            ContentTemplate="{DataTemplate pages:OperacionesPage}" />
+
+        <ShellContent 
+            Title="Config" 
+            Icon="settings.png" 
+            ContentTemplate="{DataTemplate pages:ConfiguracionPage}" />
+    </TabBar>
+</Shell>
+

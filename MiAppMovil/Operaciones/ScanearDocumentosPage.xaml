@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiAppMovil.Operaciones.ScanearDocumentosPage"
+             Title="Escanear Documentos"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Button Text="← Volver" 
+                Clicked="OnBackButtonClicked" 
+                HorizontalOptions="Start"
+                BackgroundColor="Transparent"
+                TextColor="#512BD4" />
+
+        <Label Text="Escanea documentos con la cámara"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Button Text="📷 Tomar Foto del Documento"
+                Clicked="OnTomarFotoClicked"
+                BackgroundColor="#007AFF"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50" />
+
+        <CollectionView x:Name="ImagenesCollection"
+                ItemsSource="{Binding ImagenesCapturadas}"
+                HeightRequest="150"
+                SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="5" Margin="5"
+                   BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#2C2C2E}"
+                   CornerRadius="8">
+                        <Grid>
+                            <Image Source="{Binding}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                            <Button Text="✕"
+                            BackgroundColor="#DD4444"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="12"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"
+                            Clicked="EliminarImagen_Clicked"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+
+        <Button Text="🧾 Generar y Descargar PDF"
+                Clicked="OnGenerarPdfClicked"
+                BackgroundColor="#34C759"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50" />
+
+        <ActivityIndicator x:Name="LoadingIndicator"
+                           IsVisible="False"
+                           IsRunning="False"
+                           HorizontalOptions="Center"/>
+
+    </VerticalStackLayout>
+</ContentPage>

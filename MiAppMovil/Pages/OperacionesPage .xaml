@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MiAppMovil.Pages.OperacionesPage"
+    Title="Menú Operaciones"
+    BarBackgroundColor="#512BD4"
+    BarTextColor="White">
+
+    <!-- Pestaña Cotizador Refacciones -->
+    <ContentPage Title="Cotizador" IconImageSource="🛠️">
+        <Grid Padding="20" BackgroundColor="White">
+            <VerticalStackLayout Spacing="20" VerticalOptions="Start">
+
+                <!-- Botón Atrás personalizado -->
+                <Button Text="← Atrás"
+                        FontAttributes="Bold"
+                        TextColor="#512BD4"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Start"
+                        Clicked="OnBackClicked"/>
+
+                <Label Text="Cotizador de Refacciones"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#512BD4"
+                       HorizontalOptions="Center" />
+
+                <!-- Aquí puedes agregar más contenido del cotizador -->
+                <Label Text="Contenido del Cotizador Refacciones..." 
+                       HorizontalOptions="Center" 
+                       TextColor="#666" />
+
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage>
+
+    <!-- Pestaña Unidades Nuevas -->
+    <ContentPage Title="Unidades Nuevas" IconImageSource="🚗">
+        <Grid Padding="20" BackgroundColor="White">
+            <VerticalStackLayout Spacing="20" VerticalOptions="Start">
+
+                <!-- Botón Atrás personalizado -->
+                <Button Text="← Atrás"
+                        FontAttributes="Bold"
+                        TextColor="#512BD4"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Start"
+                        Clicked="OnBackClicked"/>
+
+                <Label Text="Unidades Nuevas"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#512BD4"
+                       HorizontalOptions="Center" />
+
+                <!-- Aquí puedes agregar más contenido -->
+                <Label Text="Contenido de Unidades Nuevas..."
+                       HorizontalOptions="Center"
+                       TextColor="#666" />
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage>
+
+</TabbedPage>
